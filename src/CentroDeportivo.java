@@ -137,4 +137,42 @@ public class CentroDeportivo {
 
         return entrenador;
     }
+
+    /**
+     * Este metodo recorre el array una vez por posición, ira comprando valores para poner el valor mas bajo en la posición 0 etc..
+     */
+    public void ordenarEntrenadores (){
+        //Declaramos una var que servira para intercambiar la posición de dos entrenadores
+        Entrenador movil;
+        //int idI;
+        //int idJ;
+
+        //1º iniciamos un bucle que recorrera todas las posiciones de array a excepción de la última
+        for (int i = 0; i < NUM_MAX_ENTRENADORES - 1; i++) {
+            //2º inicamos un segundo bucle para comparar cada entrenador de las posiciones posteriores con el entrenador de la posición de i
+            for (int j = i + 1; j < NUM_MAX_ENTRENADORES; j++) {
+                /*
+                Comprobamos que la posición de i y j no sea la misma
+                if (i != j){
+                */
+                /*
+                idI = entrenadores[i].getId();
+                idJ = entrenadores[j].getId();
+                 */
+                //Si la posición i esta vacia insertamos j en i y vaciamos j para evitar repetición de registros
+                if (entrenadores[i] == null) {
+                    entrenadores [i] = entrenadores[j];
+                    entrenadores [j] = null;
+                }
+                //Comparamos que la posición j no este vacia y que el id del Entrenador de la posición de i es mayor
+                else if (entrenadores[j] != null && entrenadores[i].getId() > entrenadores[j].getId()) {
+                    //Si es mayor cambiamos los entrenadores de posición, para quedarnos con el que tiene el id menor primero
+                    movil = entrenadores[i];
+                    entrenadores[i] = entrenadores[j];
+                    entrenadores[j] = movil;
+                }
+                //}
+            }
+        }
+    }
 }

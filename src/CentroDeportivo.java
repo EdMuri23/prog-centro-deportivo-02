@@ -4,7 +4,7 @@ public class CentroDeportivo {
     private Entrenador[] entrenadores;
     private final int NUM_MAX_ENTRENADORES;
 
-    public CentroDeportivo(Entrenador[] entrenadores, int numMaxEntrenadores) {
+    public CentroDeportivo(int numMaxEntrenadores) {
         //this.NUM_MAX_ENTRENADORES = 15;
         if (numMaxEntrenadores < 0 && numMaxEntrenadores > 15) {
             numMaxEntrenadores = 15;
@@ -79,6 +79,62 @@ public class CentroDeportivo {
         return registrado;
     }
 
-    public String mostrarEntrenadores()
-    public int contarEntrenadores()
+    /**
+     *
+     * @return
+     */
+    public String mostrarEntrenadores(){
+        StringBuilder infoEntrenadores = new StringBuilder("Entrenadores: ");
+        for (int i = 0; i < NUM_MAX_ENTRENADORES; i++) {
+            if (entrenadores[i] != null){
+                infoEntrenadores.append(entrenadores[i].toString());
+            }
+        }
+
+        return infoEntrenadores.toString();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int contarEntrenadores(){
+        int contador = 0;
+
+        for (int i = 0; i < NUM_MAX_ENTRENADORES; i++) {
+            if (entrenadores[i] != null){
+                contador++;
+            }
+        }
+
+        return contador;
+    }
+
+    public Entrenador borrarEntrenador(int id){
+        Entrenador entrenadorBorrado = null;
+
+        if (buscarEntrenador(id) != null){
+            for (int i = 0; i < NUM_MAX_ENTRENADORES; i++) {
+                if (entrenadores[i] != null && entrenadores[i].getId() == id) {
+                    entrenadorBorrado = entrenadores[i];
+                    entrenadores[i] = null;
+                }
+            }
+        }
+
+        return entrenadorBorrado;
+    }
+
+    public Entrenador borrarEntrenador(Entrenador entrenador){
+
+        if (buscarEntrenador(entrenador.getId()) != null){
+            for (int i = 0; i < NUM_MAX_ENTRENADORES; i++) {
+                if (entrenadores[i] != null && entrenadores[i] == entrenador) {
+                    entrenadores[i] = null;
+                }
+            }
+        }
+
+        return entrenador;
+    }
 }

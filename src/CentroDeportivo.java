@@ -4,9 +4,13 @@ public class CentroDeportivo {
     private Entrenador[] entrenadores;
     private final int NUM_MAX_ENTRENADORES;
 
-    public CentroDeportivo(Entrenador[] entrenadores) {
-        this.NUM_MAX_ENTRENADORES = 15;
+    public CentroDeportivo(Entrenador[] entrenadores, int numMaxEntrenadores) {
+        //this.NUM_MAX_ENTRENADORES = 15;
+        if (numMaxEntrenadores < 0 && numMaxEntrenadores > 15) {
+            numMaxEntrenadores = 15;
+        }
 
+        this.NUM_MAX_ENTRENADORES = numMaxEntrenadores;
         this.entrenadores = new Entrenador[NUM_MAX_ENTRENADORES];
     }
 

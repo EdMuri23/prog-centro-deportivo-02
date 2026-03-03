@@ -14,7 +14,7 @@ public class Entrenador {
      * @param anosExperiencia
      */
     public Entrenador(int id, String nombre, String especialidad, int anosExperiencia) {
-        this.id = id;//totalEntrenadores;
+        this.id = id; //totalEntrenadores;
         this.nombre = nombre;
         this.especialidad = especialidad;
         this.anosExperiencia = anosExperiencia;
@@ -45,10 +45,10 @@ public class Entrenador {
      */
     @Override
     public String toString() {
-        StringBuilder infoEntrenador = new StringBuilder("Entrenador:");
-        infoEntrenador.append(" Id: " + id);
-        infoEntrenador.append(" Nombre: " + nombre);
-        infoEntrenador.append(" Especialidad: " + especialidad + "(" + anosExperiencia + ")");
+        StringBuilder infoEntrenador = new StringBuilder("Entrenador:\n");
+        infoEntrenador.append(" Id: " + id + "\n");
+        infoEntrenador.append(" Nombre: " + nombre + "\n");
+        infoEntrenador.append(" Especialidad: " + especialidad + "(" + anosExperiencia + ")\n");
 
         return infoEntrenador.toString();
     }

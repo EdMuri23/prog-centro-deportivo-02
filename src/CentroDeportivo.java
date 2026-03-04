@@ -6,12 +6,12 @@ public class CentroDeportivo {
 
     public CentroDeportivo(int numMaxEntrenadores) {
         //this.NUM_MAX_ENTRENADORES = 15;
-        if (numMaxEntrenadores < 0 && numMaxEntrenadores > 15) {
+        if (numMaxEntrenadores < 0 || numMaxEntrenadores > 15) {
             numMaxEntrenadores = 15;
         }
 
         this.NUM_MAX_ENTRENADORES = numMaxEntrenadores;
-        this.entrenadores = new Entrenador[NUM_MAX_ENTRENADORES];
+        this.entrenadores = new Entrenador[numMaxEntrenadores];
     }
 
     /**
@@ -171,8 +171,21 @@ public class CentroDeportivo {
                     entrenadores[i] = entrenadores[j];
                     entrenadores[j] = movil;
                 }
+                System.out.print("i = " + i + " j = " + j + "\t");
+                imprimirArray();
                 //}
             }
         }
+    }
+
+    public void imprimirArray(){
+        for (int i = 0; i < NUM_MAX_ENTRENADORES; i++) {
+            if (entrenadores[i] != null){
+                System.out.print(entrenadores[i].getId() + " ");
+            } else {
+                System.out.print("null ");
+            }
+        }
+        System.out.println();
     }
 }

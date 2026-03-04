@@ -26,7 +26,7 @@ void main() {
     entrenador7 = new Entrenador(7, "laura", "cardio", 5);
     entrenador4 = new Entrenador(4, "david", "fuerza", 4);
 
-    centroDeportivo = new CentroDeportivo(15);
+    centroDeportivo = new CentroDeportivo(12);
 
     System.out.println(centroDeportivo.registrarEntrenador(entrenador8));
     System.out.println(centroDeportivo.registrarEntrenador(entrenador3));
@@ -46,6 +46,9 @@ void main() {
 
     System.out.println(centroDeportivo.registrarEntrenador(entrenador4));
 
+    centroDeportivo.borrarEntrenador(10);
+
+    centroDeportivo.imprimirArray();
     centroDeportivo.ordenarEntrenadores();
 
     System.out.println(centroDeportivo.mostrarEntrenadores());
